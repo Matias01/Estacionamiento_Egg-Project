@@ -7,6 +7,6 @@ Finalmente, dará de baja la estadía una vez retirada la bicicleta del establec
 
 Integrantes
 
-    Back-end: Matias N. Bergamaschi, Celina Devigili, Alan Blumenfeld
+Back-end: Matias N. Bergamaschi, Celina Devigili, Alan Blumenfeld
 
-    Front-end: Matias Gauna, Martin Bernal, Gina Penelli, Nadia Sanchez
+Front-end: Matias Gauna, Martin Bernal, Gina Penelli, Nadia Sanchez
