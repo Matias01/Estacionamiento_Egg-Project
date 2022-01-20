@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="/imagenes/favicon.png">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>E Parking</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+</head>
+
+<body class="img3">
+
+    <header>
+        <nav class="navbar navbar-expand-md bg-success navbar-dark">
+            <!-- Navbar content -->
+            <div class="container-fluid">
+              <a class="navbar-brand" href="#">
+                <img src="/imagenes/Sin título-2-07.png" alt="" width="150" height="50" class="d-inline-block align-text-top">
+              </a>
+              <div align="right">
+                <a class="btn btn-success float-rigth" href="/inicio" role="button">Inicio</a>
+                <a href="#" class="btn btn-success float-rigth" role="button">Perfil</a>
+                <a href="/logout" class="btn btn-success me-2" type="button">¡Cerrar sesión!</button></a>
+              </div>
+          </nav>
+        <img class="img-fluid" src="" alt="" width="100%" style="height: auto;" >
+      </header>
+      
+    <section>
+        <div class="container">
+            <div class="row d-flex  justify-content-end">
+                <div class="col-lg-6 ">
+                    <div class="p-5">
+                        <h2 style="color:rgb(233, 230, 230);" class="display-4"><span th:text="${accion}"></span>Establecimiento</h2>
+                        
+                        <img th:if="${perfil.foto != null}" class="img-fluid rounded-circle" th:src="${'/foto/establecimiento/' + perfil.id}" alt="">
+                        <img th:if="${perfil.foto == null}" class="img-fluid rounded-circle" src="" alt="">
+                    </div>
+                </div>
+                    
+                <div class="col-lg-6 ">
+                    <div class="p-5">
+                        <form enctype="multipart/form-data">
+
+                            <p th:if="${error != null}" th:text="${error}" style="color:red;"></p>
+                            
+                            <input type="hidden" name="id" th:value="${perfil.id}"/>
+
+                            <label></label>
+                            <input type="text" class="form-control" name="nombre" th:value="${perfil.nombre}" th:disabled="${accion =='Eliminar'}"
+                                placeholder="Nombre" />
+
+                            <label></label>
+                            <input type="number" class="form-control" name="cantLugaresTotal" th:value="${perfil.cantLugaresTotal} " th:disabled="${accion =='Eliminar'}" placeholder="Cantidad Lugares " />
+
+                            <label th:disabled="${accion =='Eliminar'}"></label>
+                            <input type="file" class="form-control" name="archivo" th:if="${accion !='Eliminar'}"/>
+
+                            <br/><button th:if="${accion == 'Crear'}" type="submit" class="btn btn-success" formaction="/establecimiento/actualizar-perfil" formmethod="POST">Registrar Establecimiento</button>
+                            <button th:if="${accion == 'Actualizar'}" type="submit" class="btn btn-primary" formaction="/establecimiento/actualizar-perfil" formmethod="POST">Actualizar Establecimiento</button>
+                            <button th:if="${accion == 'Eliminar'}" type="submit" class="btn btn-danger" formaction="/establecimiento/eliminar-perfil" formmethod="POST">Eliminar Establecimiento</button>
+            
+                            <a class="btn btn-primary " th:href="@{/establecimiento/mis-establecimientos}" role="button">Volver</a>
+                            
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
