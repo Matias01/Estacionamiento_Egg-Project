@@ -5,6 +5,7 @@ El funcionamiento consiste en el registro de un administrador, el cual puede ing
 También puede ingresar los datos de los clientes nuevos o buscarlos en la base de datos. 
 Finalmente, dará de baja la estadía una vez retirada la bicicleta del establecimiento, devolviéndose el pago por el servicio.
 
-Integrantes:
+Integrantes
+
 Back-end: Matias N. Bergamaschi, Celina Devigili, Alan Blumenfeld.
 Front-end: Matias Gauna, Martin Bernal, Gina Penelli, Nadia Sanchez.
